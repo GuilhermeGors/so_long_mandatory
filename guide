@@ -1,0 +1,3 @@
+compilação:
+
+ clang main.c -lX11 -lXext -lmlx
