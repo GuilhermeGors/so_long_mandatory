@@ -4,7 +4,7 @@ MLX_FLAGS = -lX11 -lXext -lmlx
 
 SRC_DIR = src
 OBJ_DIR = obj
-SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/game.c $(SRC_DIR)/render.c $(SRC_DIR)/input.c
+SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/game.c $(SRC_DIR)/render.c $(SRC_DIR)/input.c $(SRC_DIR)/background.c
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 NAME = game

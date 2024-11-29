@@ -6,11 +6,11 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:34:56 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/11/22 19:42:38 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/11/29 19:00:13 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
+#include "../includes/game.h"
 
 // Função para capturar as teclas pressionadas
 int key_press(int keycode, t_game *game)

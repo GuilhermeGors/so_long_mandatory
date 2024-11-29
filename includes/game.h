@@ -1,13 +1,12 @@
 #ifndef GAME_H
 # define GAME_H
 
-# include <mlx.h>      // Biblioteca MLX
-# include <stdlib.h>    // Funções de alocação e controle de memória
-# include <stdio.h>     // Funções de entrada e saída
-# include <fcntl.h>     // Para manipulação de arquivos
-# include <unistd.h>    // Para manipulação de arquivos
+# include <mlx.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <unistd.h>
 
-// Definindo a estrutura do jogo
 typedef struct s_game {
     void    *mlx;              // Ponteiro para a estrutura MLX
     void    *win;              // Ponteiro para a janela do jogo

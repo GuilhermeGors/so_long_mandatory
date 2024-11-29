@@ -6,12 +6,12 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:49:13 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/11/22 19:30:00 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/11/29 18:59:58 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // background.c
-#include "background.h"
+#include "../includes/background.h"
 #include <mlx.h>
 
 int load_background(t_game *game)
