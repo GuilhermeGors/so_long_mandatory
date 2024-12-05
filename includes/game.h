@@ -1,46 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/03 15:36:31 by gugomes-          #+#    #+#             */
+/*   Updated: 2024/12/05 16:47:26 by gugomes-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef GAME_H
 # define GAME_H
 
+# include "../libs/libft/libft.h"
+# include "../libs/minilibx/mlx.h"
 # include <mlx.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
 
+# define MAP_HEIGHT 15
+# define MAP_WIDTH 64
+
 typedef struct s_game {
-    void    *mlx;              // Ponteiro para a estrutura MLX
-    void    *win;              // Ponteiro para a janela do jogo
-    void    *background;       // Ponteiro para a imagem de fundo
-    void    *img_wall;         // Imagem da parede
-    void    *img_backg;        // Imagem do fundo
-    void    *img_player;       // Imagem do jogador
-    void    *img_colect;       // Imagem dos itens coletáveis
-    void    *img_exit;         // Imagem da saída
-	void	**front_frames;
-	void	**back_frames;
-	void	**left_frames;
-	void	**right_frames;
-    int     img_w;             // Largura da imagem
-    int     img_h;             // Altura da imagem
-    char    **map;             // Mapa carregado (matriz de strings)
-    int     frame_count;       // Quantidade de frames de animação
-    int     current_frame;     // Frame atual da animação
-    int     x_pos;             // Posição X do personagem
-    int     y_pos;             // Posição Y do personagem
-    int     frame_counter;     // Contador de quadros (para animação)
-    int     moving_up;         // Flag para movimento para cima
-    int     moving_left;       // Flag para movimento para a esquerda
-    int     moving_right;      // Flag para movimento para a direita
-    int     n_colect;          // Número de itens coletáveis
+    void    *mlx;
+    void    *win;
+    void    *player_image;
+    void    *wall_image;
+    void    *path_image;
+    void    *exit_image;
+    void    *collectable_image;
+    int     x_pos;
+    int     y_pos;
+    char    map[MAP_HEIGHT][MAP_WIDTH + 1];
 } t_game;
 
-// Funções relacionadas ao jogo
-int     close_game(t_game *game);                     // Fecha o jogo
-int     animate_sprite(t_game *game);                 // Anima o sprite do jogador
-int     load_images(t_game *game);                    // Carrega as imagens necessárias
-int     load_background(t_game *game);                // Carrega o fundo
-int     map_draw(t_game *game);                       // Desenha o mapa
-char    **read_map(char *path);                       // Lê o mapa do arquivo
-void    img_draw(t_game *game, void *image, int x, int y); // Desenha as imagens no mapa
+int     load_map(t_game *game, const char *filename);
+int     key_press(int keycode, t_game *game);
+int     close_game(t_game *game);
+int     render_player(t_game *game);
+int     render_map(t_game *game);
+int     load_map(t_game *game, const char *filename);
 
-#endif // GAME_H
+
+#endif

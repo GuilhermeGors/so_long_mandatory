@@ -5,49 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 17:34:26 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/11/29 19:04:55 by gugomes-         ###   ########.fr       */
+/*   Created: 2024/12/05 15:30:42 by gugomes-          #+#    #+#             */
+/*   Updated: 2024/12/05 15:31:09 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/render.h"
 #include "../includes/game.h"
 
-int load_images(t_game *game)
+int render_player(t_game *game)
 {
-    // Aloca memória para os arrays de frames
-    game->frame_count = 3;
-    game->front_frames = malloc(sizeof(void*) * game->frame_count);
-    game->back_frames = malloc(sizeof(void*) * game->frame_count);
-    game->left_frames = malloc(sizeof(void*) * game->frame_count);
-    game->right_frames = malloc(sizeof(void*) * game->frame_count);
+    mlx_clear_window(game->mlx, game->win);
+    mlx_put_image_to_window(game->mlx, game->win, game->player_image, game->x_pos, game->y_pos);
 
-    if (!game->front_frames || !game->back_frames || !game->left_frames || !game->right_frames)
-        return (0);
-
-    // Carregar os frames de animação
-    game->front_frames[0] = mlx_xpm_file_to_image(game->mlx, "./assets/player/fire_1.xpm", &game->x_pos, &game->y_pos);
-    game->front_frames[1] = mlx_xpm_file_to_image(game->mlx, "./assets/player/fire_2.xpm", &game->x_pos, &game->y_pos);
-    game->front_frames[2] = mlx_xpm_file_to_image(game->mlx, "./assets/player/fire_3.xpm", &game->x_pos, &game->y_pos);
-
-    game->back_frames[0] = mlx_xpm_file_to_image(game->mlx, "./assets/player/fire_back_1.xpm", &game->x_pos, &game->y_pos);
-    game->back_frames[1] = mlx_xpm_file_to_image(game->mlx, "./assets/player/fire_back_2.xpm", &game->x_pos, &game->y_pos);
-    game->back_frames[2] = mlx_xpm_file_to_image(game->mlx, "./assets/player/fire_back_3.xpm", &game->x_pos, &game->y_pos);
-
-    game->left_frames[0] = mlx_xpm_file_to_image(game->mlx, "./assets/player/fire_left_1.xpm", &game->x_pos, &game->y_pos);
-    game->left_frames[1] = mlx_xpm_file_to_image(game->mlx, "./assets/player/fire_left_2.xpm", &game->x_pos, &game->y_pos);
-    game->left_frames[2] = mlx_xpm_file_to_image(game->mlx, "./assets/player/fire_left_3.xpm", &game->x_pos, &game->y_pos);
-
-    game->right_frames[0] = mlx_xpm_file_to_image(game->mlx, "./assets/player/fire_right_1.xpm", &game->x_pos, &game->y_pos);
-    game->right_frames[1] = mlx_xpm_file_to_image(game->mlx, "./assets/player/fire_right_2.xpm", &game->x_pos, &game->y_pos);
-    game->right_frames[2] = mlx_xpm_file_to_image(game->mlx, "./assets/player/fire_right_3.xpm", &game->x_pos, &game->y_pos);
-
-    // Verifica se todas as imagens foram carregadas com sucesso
-    if (!game->front_frames[0] || !game->front_frames[1] || !game->front_frames[2] ||
-        !game->back_frames[0] || !game->back_frames[1] || !game->back_frames[2] ||
-        !game->left_frames[0] || !game->left_frames[1] || !game->left_frames[2] ||
-        !game->right_frames[0] || !game->right_frames[1] || !game->right_frames[2])
-        return (0);
-
-    return (1);
+    return (0);
 }
+
