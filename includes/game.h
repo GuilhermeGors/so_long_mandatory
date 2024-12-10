@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:36:31 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/05 16:47:26 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/10 13:33:14 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 
-# define MAP_HEIGHT 15
-# define MAP_WIDTH 64
+# define TILE_SIZE 32
 
 typedef struct s_game {
     void    *mlx;
@@ -34,8 +33,12 @@ typedef struct s_game {
     void    *collectable_image;
     int     x_pos;
     int     y_pos;
-    char    map[MAP_HEIGHT][MAP_WIDTH + 1];
+    int     collectables;
+    int     map_height;
+    int     map_width;
+    char    **map;
 } t_game;
+
 
 int     load_map(t_game *game, const char *filename);
 int     key_press(int keycode, t_game *game);
@@ -43,6 +46,8 @@ int     close_game(t_game *game);
 int     render_player(t_game *game);
 int     render_map(t_game *game);
 int     load_map(t_game *game, const char *filename);
-
+int     load_images(t_game *game);
+int     trace_map(t_game *game);
+void print_map(t_game *game);
 
 #endif

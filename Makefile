@@ -11,7 +11,7 @@ SRC_DIR = src
 OBJ_DIR = obj
 
 SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/render.c $(SRC_DIR)/game_utils.c \
-		$(LIB_DIR)/ft_strncpy.c $(LIB_DIR)/get_next_line.c
+		$(LIB_DIR)/ft_strncpy.c $(LIB_DIR)/get_next_line.c $(SRC_DIR)/load_img.c $(SRC_DIR)/verify_map.c
        
 
 
