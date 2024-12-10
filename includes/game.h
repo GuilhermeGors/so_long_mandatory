@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:36:31 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/10 13:33:14 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/10 15:58:46 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,19 @@ typedef struct s_game {
     int     map_height;
     int     map_width;
     char    **map;
+    char    *file_path;
 } t_game;
 
 
-int     load_map(t_game *game, const char *filename);
+void     load_map(t_game *game);
 int     key_press(int keycode, t_game *game);
 int     close_game(t_game *game);
 int     render_player(t_game *game);
 int     render_map(t_game *game);
-int     load_map(t_game *game, const char *filename);
 int     load_images(t_game *game);
-int     trace_map(t_game *game);
-void print_map(t_game *game);
+void     trace_map(t_game *game);
+void    print_map(t_game *game);
+char    **parse_map(t_game *game, int argc, char **argv);
+int     check_if_map_file_is_ber(char *argv);
 
 #endif

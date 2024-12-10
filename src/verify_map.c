@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:40:36 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/09 18:20:59 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/10 17:22:43 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void print_map(t_game *game)
 			printf("%c", game->map[y][x]);
 			x++;
 		}
-		//printf("\n");
+		printf("\n");
 		y++;
 	}
 }

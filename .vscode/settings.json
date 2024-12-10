@@ -64,6 +64,9 @@
     "fcntl.h": "c",
     "stdio.h": "c",
     "libft.h": "c",
-    "mlx.h": "c"
+    "mlx.h": "c",
+    "random": "c",
+    "limits": "c",
+    "algorithm": "c"
   }
 }
