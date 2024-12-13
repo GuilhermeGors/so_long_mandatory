@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:29:43 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/13 14:37:10 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/13 16:40:35 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,77 @@
 
 int close_game(t_game *game)
 {
-    mlx_destroy_window(game->mlx, game->win);
+    if (game->map)
+        free_map(game->map, game->map_height);
+    free_images(game);
+    if (game->win)
+        mlx_destroy_window(game->mlx, game->win);
+    if (game->mlx)
+        mlx_destroy_display(game->mlx);
+    free(game->mlx);
     exit(0);
+}
+void free_images(t_game *game)
+{
+    if (game->player_image)
+        mlx_destroy_image(game->mlx, game->player_image);
+    if (game->wall_image)
+        mlx_destroy_image(game->mlx, game->wall_image);
+    if (game->collectable_image)
+        mlx_destroy_image(game->mlx, game->collectable_image);
+    if (game->path_image)
+        mlx_destroy_image(game->mlx, game->path_image);
+    if (game->exit_image)
+        mlx_destroy_image(game->mlx, game->exit_image);
+}
+
+void free_map(char **map, int height)
+{
+    int i;
+
+    if (!map)
+        return;
+    i = 0;
+    while (i < height)
+    {
+        if (map[i])
+            free(map[i]);
+        i++;
+    }
+    free(map);
 }
 
 int is_valid_move(t_game *game, int x, int y)
 {
     printf("\nColectables: %d\n", game->collectables);
+    static int count = 0;
+    
     // if (x < 0 || x >= game->map_height || y < 0 || y >= game->map_width)
     //     return (0);
-    if (game->map[y][x] == 'E')
+    if (game->map[y][x] == 'E')  
     {
         if (game->collectables == 0)
         {
             write(1, "Parabéns, você venceu!\n", 23);
             close_game(game);
         }
-        return (2);
-    }
+        return (2);    
+    }    
     if (game->map[y][x] == '1')
         return (0);
 
     if (game->map[y][x] == 'C')
-    {
+    {     
         game->map[y][x] = '0';
         game->collectables--;
     }
+    count++;
+    printf("\nMoves: %d\n", count);
     return (1);
-}
+} 
 
 int key_press(int keycode, t_game *game)
-{
+{    
     int new_x = game->x_pos / 32;
     int new_y = game->y_pos / 32;
 
@@ -87,26 +127,28 @@ void load_map(t_game *game)
 
     fd = open(game->file_path, O_RDONLY);
     if (fd == -1)
-        return ;
+    {
+        write(1, "Erro ao abrir o arquivo do mapa.\n", 33);
+        return;
+    }
 
-    line = NULL;
-    game->map = (char **)malloc((game->map_height) * sizeof(char *));
+    game->map = (char **)malloc((game->map_height + 1) * sizeof(char *));
     if (!game->map)
     {
         close(fd);
         write(1, "Erro ao alocar memória para o mapa.\n", 36);
-        return ;
+        return;
     }
 
     y = 0;
     while (y < game->map_height && (line = get_next_line(fd)) != NULL)
     {
-        game->map[y] = (char *)malloc((game->map_width) * sizeof(char));
+        game->map[y] = (char *)malloc((game->map_width + 1) * sizeof(char));
         if (!game->map[y])
         {
             write(1, "Erro ao alocar memória para a linha do mapa.\n", 45);
             close(fd);
-            return ;
+            return;
         }
 
         ft_strncpy(game->map[y], line, game->map_width);
@@ -120,7 +162,6 @@ void load_map(t_game *game)
             {
                 game->x_pos = x * 32;
                 game->y_pos = y * 32;
-                game->map[y][x] = 'P';
             }
             else if (game->map[y][x] == 'C')
             {
@@ -130,15 +171,18 @@ void load_map(t_game *game)
         }
         y++;
     }
+
     close(fd);
+
     if (y < game->map_height)
     {
         write(1, "Erro: o mapa tem menos linhas do que o esperado.\n", 49);
-        return ;
+        return;
     }
+
     game->map[y] = NULL;
-    return ;
 }
+
 
 void trace_map(t_game *game)
 {
@@ -151,30 +195,30 @@ void trace_map(t_game *game)
     if (fd == -1)
     {
         write(1, "Erro ao abrir o arquivo!\n", 25);
-        return ;
+        return;
     }
+
     game->map_width = 0;
     game->map_height = 0;
-
     while ((line = get_next_line(fd)) != NULL)
     {
-        max_width = ft_strlen(line) - 1;
-        if (game->map_width == 0)
-            game->map_width = max_width;
-        else if (game->map_width != max_width)
+        if (line)
         {
-            write(1, "Erro: mapa com largura inconsistente.\n", 39);
+            max_width = ft_strlen(line) - 1;
+            if (game->map_width == 0)
+                game->map_width = max_width;
+            else if (game->map_width != max_width)
+            {
+                write(1, "Erro: mapa com largura inconsistente.\n", 39);
+                free(line);
+                close(fd);
+                exit(EXIT_FAILURE);
+            }
+            game->map_height++;
             free(line);
-            close(fd);
-            exit(EXIT_FAILURE);
         }
-        game->map_height++;
-        free(line);
     }
     close(fd);
-
-    game->map_width = max_width;
-
     if (game->map_height <= 0 || game->map_width <= 0)
     {
         printf("%s", game->file_path);
@@ -185,4 +229,5 @@ void trace_map(t_game *game)
 
     printf("Dimensões do mapa - Altura: %d, Largura: %d\n", game->map_height, game->map_width);
 }
+
 

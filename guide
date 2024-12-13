@@ -1,3 +1,5 @@
 compilação:
 
  clang main.c -lX11 -lXext -lmlx
+
+ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=valgrind.log ./game map.ber

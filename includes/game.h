@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:36:31 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/10 15:58:46 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/13 16:22:11 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct s_game {
 
 
 void     load_map(t_game *game);
+void	free_images(t_game *game);
+void	free_map(char **map, int height);
 int     key_press(int keycode, t_game *game);
 int     close_game(t_game *game);
 int     render_player(t_game *game);

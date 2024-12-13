@@ -13,12 +13,12 @@ OBJ_DIR = obj
 SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/render.c $(SRC_DIR)/game_utils.c \
 		$(LIB_DIR)/ft_strncpy.c $(LIB_DIR)/get_next_line.c $(SRC_DIR)/load_img.c \
 		$(SRC_DIR)/verify_map.c $(SRC_DIR)/map_set.c
-       
-
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 NAME = game
+
+VALGRIND_FLAGS = --leak-check=full --show-leak-kinds=all --track-origins=yes map.ber
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
@@ -41,3 +41,6 @@ fclean: clean
 	make fclean -C $(LIB_DIR)
 
 re: fclean all
+
+valgrind: $(NAME)
+	valgrind $(VALGRIND_FLAGS) ./$(NAME)
