@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:29:43 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/13 17:16:20 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/13 17:27:44 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,12 @@ int is_valid_move(t_game *game, int x, int y)
 {
     printf("\nColectables: %d\n", game->collectables);
     static int count = 0;
+    char *count_str;
+
+    //size_t count_len = ft_strlen(count_str); 
+    count_str = ft_itoa(count);
+    if (!count_str)
+        free(count_str);
     
     // if (x < 0 || x >= game->map_height || y < 0 || y >= game->map_width)
     //     return (0);
@@ -80,9 +86,9 @@ int is_valid_move(t_game *game, int x, int y)
     }
     count++;
     write(1, "Moves: ", 7);
-    write(1, ft_itoa(count), sizeof(ft_itoa(count)));
+    write(1, count_str, sizeof(count_str));
     write(1, "\n", 1);
-
+    free(count_str);
     return (1);
 } 
 
