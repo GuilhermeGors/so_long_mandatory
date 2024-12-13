@@ -1,32 +1,26 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   func_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 15:27:09 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/09 12:25:21 by gugomes-         ###   ########.fr       */
+/*   Created: 2024/12/13 19:43:16 by gugomes-          #+#    #+#             */
+/*   Updated: 2024/12/13 19:43:57 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/game.h"
 
-
-int main(int argc, char **argv)
+int	ft_putstr_fd_int(const char *s, int fd)
 {
-    t_game game;
+	int	index;
 
-    game.collectables = 0;
-    
-    init_game(&game, argc, argv);
-    render_map(&game);
-    mlx_hook(game.win, 2, 1L << 0, key_press, &game);
-    mlx_hook(game.win, 17, 0, close_game, &game);
-    mlx_loop_hook(game.mlx, render_player, &game);
-    mlx_loop(game.mlx);
-    close_game(&game);
-    return (0);
+	index = 0;
+	while (s[index] != '\0')
+	{
+		write(fd, &s[index], 1);
+		index++;
+	}
+	return (0);
 }
-

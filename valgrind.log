@@ -1,52 +1,42 @@
-==497388== Memcheck, a memory error detector
-==497388== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==497388== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==497388== Command: ./game map.ber
-==497388== Parent PID: 490819
-==497388== 
-==497388== Syscall param write(buf) points to unaddressable byte(s)
-==497388==    at 0x4AC3297: write (write.c:26)
-==497388==    by 0x402C3A: is_valid_move (game_utils.c:89)
-==497388==    by 0x402D3B: key_press (game_utils.c:111)
-==497388==    by 0x404A6A: mlx_loop (in /nfs/homes/gugomes-/core/so_long/game)
-==497388==    by 0x4026EA: main (main.c:71)
-==497388==  Address 0x4ed98b2 is 0 bytes after a block of size 2 alloc'd
-==497388==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==497388==    by 0x403EBA: ft_itoa (in /nfs/homes/gugomes-/core/so_long/game)
-==497388==    by 0x402B15: is_valid_move (game_utils.c:64)
-==497388==    by 0x402D3B: key_press (game_utils.c:111)
-==497388==    by 0x404A6A: mlx_loop (in /nfs/homes/gugomes-/core/so_long/game)
-==497388==    by 0x4026EA: main (main.c:71)
-==497388== 
-==497388== 
-==497388== HEAP SUMMARY:
-==497388==     in use at exit: 4 bytes in 2 blocks
-==497388==   total heap usage: 131,733 allocs, 131,731 frees, 3,434,740 bytes allocated
-==497388== 
-==497388== 1 bytes in 1 blocks are still reachable in loss record 1 of 2
-==497388==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==497388==    by 0x4044AC: ft_calloc (in /nfs/homes/gugomes-/core/so_long/game)
-==497388==    by 0x404371: ft_substr (in /nfs/homes/gugomes-/core/so_long/game)
-==497388==    by 0x40389B: extract_line_and_update_rest (in /nfs/homes/gugomes-/core/so_long/game)
-==497388==    by 0x403555: get_next_line (in /nfs/homes/gugomes-/core/so_long/game)
-==497388==    by 0x402F41: load_map (game_utils.c:153)
-==497388==    by 0x403BD2: parse_map (map_set.c:30)
-==497388==    by 0x402547: main (main.c:26)
-==497388== 
-==497388== 3 bytes in 1 blocks are still reachable in loss record 2 of 2
-==497388==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==497388==    by 0x403EBA: ft_itoa (in /nfs/homes/gugomes-/core/so_long/game)
-==497388==    by 0x402B15: is_valid_move (game_utils.c:64)
-==497388==    by 0x402D3B: key_press (game_utils.c:111)
-==497388==    by 0x404A6A: mlx_loop (in /nfs/homes/gugomes-/core/so_long/game)
-==497388==    by 0x4026EA: main (main.c:71)
-==497388== 
-==497388== LEAK SUMMARY:
-==497388==    definitely lost: 0 bytes in 0 blocks
-==497388==    indirectly lost: 0 bytes in 0 blocks
-==497388==      possibly lost: 0 bytes in 0 blocks
-==497388==    still reachable: 4 bytes in 2 blocks
-==497388==         suppressed: 0 bytes in 0 blocks
-==497388== 
-==497388== For lists of detected and suppressed errors, rerun with: -s
-==497388== ERROR SUMMARY: 24 errors from 1 contexts (suppressed: 1 from 1)
+==534428== Memcheck, a memory error detector
+==534428== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==534428== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==534428== Command: ./game map.ber
+==534428== Parent PID: 490819
+==534428== 
+==534428== Syscall param write(buf) points to unaddressable byte(s)
+==534428==    at 0x4AC3297: write (write.c:26)
+==534428==    by 0x402A4E: is_valid_move (game_utils.c:37)
+==534428==    by 0x402B5B: key_press (game_utils.c:59)
+==534428==    by 0x404AFA: mlx_loop (in /nfs/homes/gugomes-/core/so_long/game)
+==534428==    by 0x4025A4: main (main.c:28)
+==534428==  Address 0x4d5ace2 is 0 bytes after a block of size 2 alloc'd
+==534428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==534428==    by 0x403EEA: ft_itoa (in /nfs/homes/gugomes-/core/so_long/game)
+==534428==    by 0x40292D: is_valid_move (game_utils.c:20)
+==534428==    by 0x402B5B: key_press (game_utils.c:59)
+==534428==    by 0x404AFA: mlx_loop (in /nfs/homes/gugomes-/core/so_long/game)
+==534428==    by 0x4025A4: main (main.c:28)
+==534428== 
+==534428== 
+==534428== HEAP SUMMARY:
+==534428==     in use at exit: 3 bytes in 1 blocks
+==534428==   total heap usage: 410,545 allocs, 410,544 frees, 10,355,838 bytes allocated
+==534428== 
+==534428== 3 bytes in 1 blocks are still reachable in loss record 1 of 1
+==534428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==534428==    by 0x403EEA: ft_itoa (in /nfs/homes/gugomes-/core/so_long/game)
+==534428==    by 0x40292D: is_valid_move (game_utils.c:20)
+==534428==    by 0x402B5B: key_press (game_utils.c:59)
+==534428==    by 0x404AFA: mlx_loop (in /nfs/homes/gugomes-/core/so_long/game)
+==534428==    by 0x4025A4: main (main.c:28)
+==534428== 
+==534428== LEAK SUMMARY:
+==534428==    definitely lost: 0 bytes in 0 blocks
+==534428==    indirectly lost: 0 bytes in 0 blocks
+==534428==      possibly lost: 0 bytes in 0 blocks
+==534428==    still reachable: 3 bytes in 1 blocks
+==534428==         suppressed: 0 bytes in 0 blocks
+==534428== 
+==534428== For lists of detected and suppressed errors, rerun with: -s
+==534428== ERROR SUMMARY: 42 errors from 1 contexts (suppressed: 1 from 1)
