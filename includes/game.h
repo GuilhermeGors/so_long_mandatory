@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:36:31 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/13 16:22:11 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/13 17:10:10 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ void     trace_map(t_game *game);
 void    print_map(t_game *game);
 char    **parse_map(t_game *game, int argc, char **argv);
 int     check_if_map_file_is_ber(char *argv);
+int     count_digits(int n);
 
 #endif

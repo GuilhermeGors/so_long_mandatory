@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:29:43 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/13 16:40:35 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/13 17:16:20 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,10 @@ int is_valid_move(t_game *game, int x, int y)
         game->collectables--;
     }
     count++;
-    printf("\nMoves: %d\n", count);
+    write(1, "Moves: ", 7);
+    write(1, ft_itoa(count), sizeof(ft_itoa(count)));
+    write(1, "\n", 1);
+
     return (1);
 } 
 
@@ -182,7 +185,6 @@ void load_map(t_game *game)
 
     game->map[y] = NULL;
 }
-
 
 void trace_map(t_game *game)
 {
