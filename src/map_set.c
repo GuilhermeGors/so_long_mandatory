@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:07:33 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/13 16:35:03 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/14 01:19:06 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	**parse_map(t_game *game, int argc, char **argv)
 	}
 	trace_map(game);
 	load_map(game);
+    count_elements(game);
 	if (!game->map)
 	{
 		write(1, "Error\nFailure reading the map, file name is invalid!\n", 52);
