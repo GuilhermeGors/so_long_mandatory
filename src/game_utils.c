@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:29:43 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/13 20:25:14 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/13 21:26:22 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int key_press(int keycode, t_game *game)
             game->map[new_y][new_x] = 'P';
         render_map(game);
         if (move_status == 2)
-            mlx_put_image_to_window(game->mlx, game->win, game->player_image, new_x * 32, new_y * 32);
+            mlx_put_image_to_window(game->mlx, game->win, game->P_img, new_x * 32, new_y * 32);
     }
     print_map(game);
     return (0);
@@ -89,7 +89,7 @@ void load_map(t_game *game)
     if (!game->map)
     {
         close(fd);
-        write(1, "Erro ao alocar memória para o mapa.\n", 36);
+        ft_putstr_fd("Erro ao alocar memória para o mapa.\n", 2);
         return;
     }
 
@@ -100,7 +100,7 @@ void load_map(t_game *game)
         if (!game->map[y])
         {   
             close(fd);
-            return (ft_putstr_fd("Erro alocating line memory.\n", 2));
+            return (ft_putstr_fd("Error alocating line memory.\n", 2));
         }
         ft_strncpy(game->map[y], line, game->map_width);
         game->map[y][game->map_width] = '\0';
@@ -128,42 +128,44 @@ void load_map(t_game *game)
     game->map[y] = NULL;
 }
 
+static void handle_line(char *line, t_game *game, int fd)
+{
+    int max_width;
+
+    max_width = ft_strlen(line) - 1;
+    if (game->map_width == 0)
+        game->map_width = max_width;
+    else if (game->map_width != max_width)
+    {
+        write(1, "Erro: strange height read.\n", 29);
+        free(line);
+        close(fd);
+        exit(EXIT_FAILURE);
+    }
+    game->map_height++;
+    free(line);
+}
+
 void trace_map(t_game *game)
 {
     int     fd;
     char    *line;
-    int     max_width;
 
-    max_width = 0;
     fd = open(game->file_path, O_RDONLY);
     if (fd == -1)
         return (ft_putstr_fd("Error opening file.", 2));
-    while ((line = get_next_line(fd)) != NULL)
+    line = get_next_line(fd);
+    while (line != NULL)
     {
-        if (line)
-        {
-            max_width = ft_strlen(line) - 1;
-            if (game->map_width == 0)
-                game->map_width = max_width;
-            else if (game->map_width != max_width)
-            {
-                write(1, "Erro: strange height read.\n", 39);
-                free(line);
-                close(fd);
-                exit(EXIT_FAILURE);
-            }
-            game->map_height++;
-            free(line);
-        }
+        handle_line(line, game, fd);
+        line = get_next_line(fd);
     }
-    free(get_next_line(fd));
     close(fd);
     if (game->map_height <= 0 || game->map_width <= 0)
     {
-        ft_putstr_fd("Invalid map dimentions.\n", 2);
+        ft_putstr_fd("Invalid map dimensions.\n", 2);
         exit(EXIT_FAILURE);
     }
-    printf("Dimensões do mapa - Altura: %d, Largura: %d\n", game->map_height, game->map_width);
 }
 
 
