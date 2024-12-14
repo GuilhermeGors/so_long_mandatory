@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 19:37:47 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/13 21:21:13 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/14 00:51:34 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,19 @@
 
 static void	init_countables(t_game *game)
 {
+	game->collectables = 0;
 	game->map_width = 0;
     game->map_height = 0;
-	// game->collectible = 0;
-	// game->exit = 0;
-	// game->player = 0;
-	// game->floor_flag = 0;
-	// game->wall_flag = 0;
-	// game->exit_flag = 0;
-	// game->player_flag = 0;
-	// game->collectible_flag = 0;
+	game->e_count = 0;
+	game->p_count = 0;
+	game->c_count = 0;
+
 }
 int	init_game(t_game *game, int argc, char **argv)
 {
 	init_countables(game);
 	game->map = parse_map(game, argc, argv);
-	if (!game->map) // validar mapa aqui
+	if (!game->map  || !validate_map(game->map, game))
 		return (ft_putstr_fd_int("Invalid map file.\n", 2));
 	game->mlx = mlx_init();
 	if (!game->mlx)

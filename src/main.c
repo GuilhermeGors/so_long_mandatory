@@ -17,8 +17,6 @@
 int main(int argc, char **argv)
 {
     t_game game;
-
-    game.collectables = 0;
     
     init_game(&game, argc, argv);
     render_map(&game);

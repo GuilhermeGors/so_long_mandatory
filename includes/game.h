@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:36:31 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/14 00:09:00 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/14 00:40:46 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,8 @@ int		ft_putstr_fd_int(const char *s, int fd);
 int		init_game(t_game *game, int argc, char **argv);
 char    **parse_map(t_game *game, int argc, char **argv);
 void    trace_map(t_game *game);
+void	count_elements(t_game *game);
+int		validate_map(char **map, t_game *game);
+void debug_map(char **map);
 
 #endif

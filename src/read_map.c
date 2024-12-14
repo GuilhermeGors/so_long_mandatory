@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 21:35:26 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/13 21:52:22 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/14 00:35:07 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ void trace_map(t_game *game)
         ft_putstr_fd("Invalid map dimensions.\n", 2);
         exit(EXIT_FAILURE);
     }
+    //count_elements(game);
 }
