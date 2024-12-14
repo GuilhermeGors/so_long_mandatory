@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:07:33 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/14 01:19:06 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/14 01:31:16 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	**parse_map(t_game *game, int argc, char **argv)
 	}
 	trace_map(game);
 	load_map(game);
-    count_elements(game);
+	count_elements(game);
 	if (!game->map)
 	{
 		write(1, "Error\nFailure reading the map, file name is invalid!\n", 52);
@@ -54,7 +54,8 @@ int	check_if_map_file_is_ber(char *argv)
 	file_type = ft_substr(argv, i, 4);
 	if (!file_type)
 	{
-		write(1, "Error!\nMemory allocation failed for file type substring.\n", 57);
+		ft_putstr_fd("Error!\n \
+		Memory allocation failed for file type substring.\n", 2);
 		exit(EXIT_FAILURE);
 	}
 	if (!ft_strnstr(file_type, file_type_expected, 4))
