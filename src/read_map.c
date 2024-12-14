@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 21:35:26 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/13 21:35:45 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/13 21:52:22 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void handle_line(char *line, t_game *game, int fd)
         game->map_width = max_width;
     else if (game->map_width != max_width)
     {
-        write(1, "Erro: strange height read.\n", 29);
+        ft_putstr_fd("Erro: strange height read.\n", 2);
         free(line);
         close(fd);
         exit(EXIT_FAILURE);
