@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 21:40:10 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/14 00:48:12 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/14 01:07:30 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,5 @@ void load_map(t_game *game)
     }
     game->map[y] = NULL; 
 	count_elements(game);
-	printf("\np: %d\n", game->p_count);
-	printf("\nc: %d\n", game->c_count);
-	printf("\ne: %d\n", game->e_count);	
 }
 
