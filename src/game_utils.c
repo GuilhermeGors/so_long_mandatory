@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:29:43 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/14 00:10:13 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/14 00:16:10 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	is_valid_move(t_game *game, int x, int y)
 {
 	static int	count = 0;
 
+	system("clear");
 	if (game->map[y][x] == 'E')
 	{
 		if (game->collectables == 0)

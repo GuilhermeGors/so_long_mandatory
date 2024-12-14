@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:44:37 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/14 00:10:41 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/14 00:12:42 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,3 @@ void	free_map(char **map, int height)
 	free(map);
 }
 
-void	failure_char(void)
-{
-	exit(EXIT_FAILURE);
-}

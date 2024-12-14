@@ -1,15 +1,15 @@
-==582188== Memcheck, a memory error detector
-==582188== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==582188== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==582188== Command: ./game map.ber
-==582188== Parent PID: 490819
-==582188== 
-==582188== 
-==582188== HEAP SUMMARY:
-==582188==     in use at exit: 0 bytes in 0 blocks
-==582188==   total heap usage: 800,091 allocs, 800,091 frees, 20,047,414 bytes allocated
-==582188== 
-==582188== All heap blocks were freed -- no leaks are possible
-==582188== 
-==582188== For lists of detected and suppressed errors, rerun with: -s
-==582188== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 1 from 1)
+==583683== Memcheck, a memory error detector
+==583683== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==583683== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==583683== Command: ./game map.ber
+==583683== Parent PID: 490819
+==583683== 
+==583683== 
+==583683== HEAP SUMMARY:
+==583683==     in use at exit: 0 bytes in 0 blocks
+==583683==   total heap usage: 721,866 allocs, 721,866 frees, 18,081,130 bytes allocated
+==583683== 
+==583683== All heap blocks were freed -- no leaks are possible
+==583683== 
+==583683== For lists of detected and suppressed errors, rerun with: -s
+==583683== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 1 from 1)
