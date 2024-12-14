@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:36:31 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/13 22:22:03 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/14 00:09:00 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@
 typedef struct s_game {
     void    *mlx;
     void    *win;
-    void    *P_img;
-    void    *O_img;
-    void    *Z_img;
-    void    *E_img;
-    void    *C_img;
+    void    *p_img;
+    void    *o_img;
+    void    *z_img;
+    void    *e_img;
+    void    *c_img;
+	int		e_count;
+	int		p_count;
+	int		c_count;
     int     x_pos;
     int     y_pos;
     int     collectables;

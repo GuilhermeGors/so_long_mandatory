@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:44:37 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/13 22:28:08 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/14 00:10:41 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ int	close_game(t_game *game)
 
 void	free_images(t_game *game)
 {
-	if (game->P_img)
-		mlx_destroy_image(game->mlx, game->P_img);
-	if (game->O_img)
-		mlx_destroy_image(game->mlx, game->O_img);
-	if (game->C_img)
-		mlx_destroy_image(game->mlx, game->C_img);
-	if (game->Z_img)
-		mlx_destroy_image(game->mlx, game->Z_img);
-	if (game->E_img)
-		mlx_destroy_image(game->mlx, game->E_img);
+	if (game->p_img)
+		mlx_destroy_image(game->mlx, game->p_img);
+	if (game->o_img)
+		mlx_destroy_image(game->mlx, game->o_img);
+	if (game->c_img)
+		mlx_destroy_image(game->mlx, game->c_img);
+	if (game->z_img)
+		mlx_destroy_image(game->mlx, game->z_img);
+	if (game->e_img)
+		mlx_destroy_image(game->mlx, game->e_img);
 }
 
 void	free_map(char **map, int height)

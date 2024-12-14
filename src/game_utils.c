@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:29:43 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/13 22:23:22 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/14 00:10:13 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	update_position(t_game *game, int new_x, int new_y, int move_status)
 		game->map[new_y][new_x] = 'P';
 	render_map(game);
 	if (move_status == 2)
-		mlx_put_image_to_window(game->mlx, game->win, game->P_img, \
+		mlx_put_image_to_window(game->mlx, game->win, game->p_img, \
 			new_x * 32, new_y * 32);
 }
 
