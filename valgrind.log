@@ -1,42 +1,42 @@
-==543153== Memcheck, a memory error detector
-==543153== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==543153== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==543153== Command: ./game map.ber
-==543153== Parent PID: 490819
-==543153== 
-==543153== Syscall param write(buf) points to unaddressable byte(s)
-==543153==    at 0x4AC3297: write (write.c:26)
-==543153==    by 0x402A4E: is_valid_move (game_utils.c:37)
-==543153==    by 0x402B5B: key_press (game_utils.c:59)
-==543153==    by 0x404AFA: mlx_loop (in /nfs/homes/gugomes-/core/so_long/game)
-==543153==    by 0x4025A4: main (main.c:28)
-==543153==  Address 0x4db7fa2 is 0 bytes after a block of size 2 alloc'd
-==543153==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==543153==    by 0x403EEA: ft_itoa (in /nfs/homes/gugomes-/core/so_long/game)
-==543153==    by 0x40292D: is_valid_move (game_utils.c:20)
-==543153==    by 0x402B5B: key_press (game_utils.c:59)
-==543153==    by 0x404AFA: mlx_loop (in /nfs/homes/gugomes-/core/so_long/game)
-==543153==    by 0x4025A4: main (main.c:28)
-==543153== 
-==543153== 
-==543153== HEAP SUMMARY:
-==543153==     in use at exit: 3 bytes in 1 blocks
-==543153==   total heap usage: 113,649 allocs, 113,648 frees, 2,985,500 bytes allocated
-==543153== 
-==543153== 3 bytes in 1 blocks are still reachable in loss record 1 of 1
-==543153==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==543153==    by 0x403EEA: ft_itoa (in /nfs/homes/gugomes-/core/so_long/game)
-==543153==    by 0x40292D: is_valid_move (game_utils.c:20)
-==543153==    by 0x402B5B: key_press (game_utils.c:59)
-==543153==    by 0x404AFA: mlx_loop (in /nfs/homes/gugomes-/core/so_long/game)
-==543153==    by 0x4025A4: main (main.c:28)
-==543153== 
-==543153== LEAK SUMMARY:
-==543153==    definitely lost: 0 bytes in 0 blocks
-==543153==    indirectly lost: 0 bytes in 0 blocks
-==543153==      possibly lost: 0 bytes in 0 blocks
-==543153==    still reachable: 3 bytes in 1 blocks
-==543153==         suppressed: 0 bytes in 0 blocks
-==543153== 
-==543153== For lists of detected and suppressed errors, rerun with: -s
-==543153== ERROR SUMMARY: 22 errors from 1 contexts (suppressed: 1 from 1)
+==546097== Memcheck, a memory error detector
+==546097== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==546097== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==546097== Command: ./game map.ber
+==546097== Parent PID: 490819
+==546097== 
+==546097== Syscall param write(buf) points to unaddressable byte(s)
+==546097==    at 0x4AC3297: write (write.c:26)
+==546097==    by 0x402A4E: is_valid_move (game_utils.c:37)
+==546097==    by 0x402B5B: key_press (game_utils.c:59)
+==546097==    by 0x404B2A: mlx_loop (in /nfs/homes/gugomes-/core/so_long/game)
+==546097==    by 0x4025A4: main (main.c:28)
+==546097==  Address 0x4daecf2 is 0 bytes after a block of size 2 alloc'd
+==546097==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==546097==    by 0x403F1A: ft_itoa (in /nfs/homes/gugomes-/core/so_long/game)
+==546097==    by 0x40292D: is_valid_move (game_utils.c:20)
+==546097==    by 0x402B5B: key_press (game_utils.c:59)
+==546097==    by 0x404B2A: mlx_loop (in /nfs/homes/gugomes-/core/so_long/game)
+==546097==    by 0x4025A4: main (main.c:28)
+==546097== 
+==546097== 
+==546097== HEAP SUMMARY:
+==546097==     in use at exit: 3 bytes in 1 blocks
+==546097==   total heap usage: 81,909 allocs, 81,908 frees, 2,194,496 bytes allocated
+==546097== 
+==546097== 3 bytes in 1 blocks are still reachable in loss record 1 of 1
+==546097==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==546097==    by 0x403F1A: ft_itoa (in /nfs/homes/gugomes-/core/so_long/game)
+==546097==    by 0x40292D: is_valid_move (game_utils.c:20)
+==546097==    by 0x402B5B: key_press (game_utils.c:59)
+==546097==    by 0x404B2A: mlx_loop (in /nfs/homes/gugomes-/core/so_long/game)
+==546097==    by 0x4025A4: main (main.c:28)
+==546097== 
+==546097== LEAK SUMMARY:
+==546097==    definitely lost: 0 bytes in 0 blocks
+==546097==    indirectly lost: 0 bytes in 0 blocks
+==546097==      possibly lost: 0 bytes in 0 blocks
+==546097==    still reachable: 3 bytes in 1 blocks
+==546097==         suppressed: 0 bytes in 0 blocks
+==546097== 
+==546097== For lists of detected and suppressed errors, rerun with: -s
+==546097== ERROR SUMMARY: 14 errors from 1 contexts (suppressed: 1 from 1)

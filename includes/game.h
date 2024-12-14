@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:36:31 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/13 20:33:23 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/13 21:41:47 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,9 @@ typedef struct s_game {
     char    *file_path;
 } t_game;
 
-void     load_map(t_game *game);
+void    load_map(t_game *game);
 void	free_images(t_game *game);
 void	free_map(char **map, int height);
-void    trace_map(t_game *game);
 void    print_map(t_game *game);
 int     key_press(int keycode, t_game *game);
 int     close_game(t_game *game);
@@ -55,5 +54,7 @@ int     count_digits(int n);
 int		ft_putstr_fd_int(const char *s, int fd);
 int		init_game(t_game *game, int argc, char **argv);
 char    **parse_map(t_game *game, int argc, char **argv);
+void    trace_map(t_game *game);
+
 
 #endif

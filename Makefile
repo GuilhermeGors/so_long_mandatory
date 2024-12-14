@@ -13,7 +13,7 @@ OBJ_DIR = obj
 SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/render.c $(SRC_DIR)/game_utils.c \
 		$(LIB_DIR)/ft_strncpy.c $(LIB_DIR)/get_next_line.c $(SRC_DIR)/verify_map.c \
 		$(SRC_DIR)/map_set.c $(SRC_DIR)/game_check.c $(SRC_DIR)/func_utils.c \
-		$(SRC_DIR)/clear_utils.c
+		$(SRC_DIR)/clear_utils.c $(SRC_DIR)/read_map.c $(SRC_DIR)/fill_map.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

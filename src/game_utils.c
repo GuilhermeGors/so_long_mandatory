@@ -6,7 +6,7 @@
 /*   By: gugomes- <gugomes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:29:43 by gugomes-          #+#    #+#             */
-/*   Updated: 2024/12/13 21:26:22 by gugomes-         ###   ########.fr       */
+/*   Updated: 2024/12/13 21:42:08 by gugomes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,99 +73,6 @@ int key_press(int keycode, t_game *game)
     }
     print_map(game);
     return (0);
-}
-
-void load_map(t_game *game)
-{
-    int fd;
-    char *line;
-    int y;
-    int x;
-
-    fd = open(game->file_path, O_RDONLY);
-    if (fd == -1)
-        return (ft_putstr_fd("Erro ao abrir o arquivo do mapa.\n", 2));
-    game->map = (char **)malloc((game->map_height + 1) * sizeof(char *));
-    if (!game->map)
-    {
-        close(fd);
-        ft_putstr_fd("Erro ao alocar memória para o mapa.\n", 2);
-        return;
-    }
-
-    y = 0;
-    while (y < game->map_height && (line = get_next_line(fd)) != NULL)
-    {
-        game->map[y] = (char *)malloc((game->map_width + 1) * sizeof(char));
-        if (!game->map[y])
-        {   
-            close(fd);
-            return (ft_putstr_fd("Error alocating line memory.\n", 2));
-        }
-        ft_strncpy(game->map[y], line, game->map_width);
-        game->map[y][game->map_width] = '\0';
-        free(line);
-        x = 0;
-        while (x < game->map_width)
-        {
-            if (game->map[y][x] == 'P')
-            {
-                game->x_pos = x * 32;
-                game->y_pos = y * 32;
-            }
-            else if (game->map[y][x] == 'C')
-            {
-                game->collectables++;
-            }
-            x++;
-        }
-        y++;
-    }
-    free(get_next_line(fd));
-    close(fd);
-    if (y < game->map_height)
-        return(ft_putstr_fd("Erro: map has too fewer lines than expexted\n", 2));
-    game->map[y] = NULL;
-}
-
-static void handle_line(char *line, t_game *game, int fd)
-{
-    int max_width;
-
-    max_width = ft_strlen(line) - 1;
-    if (game->map_width == 0)
-        game->map_width = max_width;
-    else if (game->map_width != max_width)
-    {
-        write(1, "Erro: strange height read.\n", 29);
-        free(line);
-        close(fd);
-        exit(EXIT_FAILURE);
-    }
-    game->map_height++;
-    free(line);
-}
-
-void trace_map(t_game *game)
-{
-    int     fd;
-    char    *line;
-
-    fd = open(game->file_path, O_RDONLY);
-    if (fd == -1)
-        return (ft_putstr_fd("Error opening file.", 2));
-    line = get_next_line(fd);
-    while (line != NULL)
-    {
-        handle_line(line, game, fd);
-        line = get_next_line(fd);
-    }
-    close(fd);
-    if (game->map_height <= 0 || game->map_width <= 0)
-    {
-        ft_putstr_fd("Invalid map dimensions.\n", 2);
-        exit(EXIT_FAILURE);
-    }
 }
 
 
